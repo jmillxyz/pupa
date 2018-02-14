@@ -7,7 +7,6 @@ class FakeJurisdiction(Jurisdiction):
     classification = 'government'
     name = 'Test'
     url = 'http://example.com'
-    parties = [{'name': 'Republican'}, {'name': 'Democratic'}]
 
     def get_organizations(self):
         parent = Organization('Congress', classification='legislature')

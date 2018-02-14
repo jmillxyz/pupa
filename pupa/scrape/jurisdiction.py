@@ -21,7 +21,6 @@ class Jurisdiction(BaseModel):
     # non-db properties
     scrapers = {}
     default_scrapers = {}
-    parties = []
     ignored_scraped_sessions = []
 
     def __init__(self):
@@ -60,8 +59,5 @@ class JurisdictionScraper(Scraper):
             yield org
 
         if self.jurisdiction.parties:
-            warnings.warn('including parties on Jurisdiction is deprecated, '
+            warnings.warn('including parties on Jurisdiction is no longer supported, '
                           'use "pupa party" command instead')
-        for party in self.jurisdiction.parties:
-            org = Organization(classification='party', name=party['name'])
-            yield org
